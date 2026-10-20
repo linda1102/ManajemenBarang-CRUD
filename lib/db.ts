@@ -19,10 +19,12 @@ let ca = "";
 
 try {
   ca = readFileSync(
-    path.join(process.cwd(), "certs", "ca.pem"),
+    path.join(process.cwd(), "certs", "ca (2).pem"),
     "utf8"
   );
-} catch {
+} catch (error) {
+  console.error("Gagal membaca sertifikat CA:", error);
+
   throw new Error(
     "File sertifikat CA tidak ditemukan. Pastikan ada di certs/ca (2).pem."
   );
