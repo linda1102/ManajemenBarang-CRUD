@@ -24,7 +24,7 @@ try {
   );
 } catch {
   throw new Error(
-    "File sertifikat CA tidak ditemukan. Pastikan ada di certs/ca.pem."
+    "File sertifikat CA tidak ditemukan. Pastikan ada di certs/ca (2).pem."
   );
 }
 
