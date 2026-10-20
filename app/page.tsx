@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
@@ -344,8 +343,7 @@ export default function Home() {
   );
 
   const totalNilai = barang.reduce(
-    (total, item) =>
-      total + Number(item.stok || 0) * Number(item.harga || 0),
+    (total, item) => total + Number(item.stok || 0) * Number(item.harga || 0),
     0,
   );
 
@@ -353,9 +351,7 @@ export default function Home() {
     (item) => Number(item.stok) > 0 && Number(item.stok) <= 5,
   ).length;
 
-  const stokHabis = barang.filter(
-    (item) => Number(item.stok) === 0,
-  ).length;
+  const stokHabis = barang.filter((item) => Number(item.stok) === 0).length;
 
   const kategoriBarang = Array.from(
     new Set(barang.map((item) => item.kategori)),
@@ -494,9 +490,7 @@ export default function Home() {
           </a>
         </nav>
 
-        <div className="sidebar-label sidebar-label-second">
-          PERSEDIAAN
-        </div>
+        <div className="sidebar-label sidebar-label-second">PERSEDIAAN</div>
 
         <nav className="sidebar-nav">
           <a
@@ -566,10 +560,7 @@ export default function Home() {
               aria-label="Muat ulang data"
               title="Muat ulang data"
             >
-              <RefreshCw
-                size={18}
-                className={loading ? "spin-icon" : ""}
-              />
+              <RefreshCw size={18} className={loading ? "spin-icon" : ""} />
             </button>
 
             <div className="account-label">
@@ -580,6 +571,7 @@ export default function Home() {
                   width={40}
                   height={40}
                   className="profile-image"
+                  unoptimized
                 />
               </div>
 
@@ -595,9 +587,7 @@ export default function Home() {
           <div className="welcome-row">
             <div>
               <h2>Ringkasan Inventaris</h2>
-              <p>
-                Pantau kondisi dan ketersediaan barang dalam satu halaman.
-              </p>
+              <p>Pantau kondisi dan ketersediaan barang dalam satu halaman.</p>
             </div>
 
             <button
@@ -646,9 +636,7 @@ export default function Home() {
                 {formatAngka(barang.length)}
               </strong>
               <div className="stat-bottom">
-                <span className="stat-description">
-                  Total barang terdaftar
-                </span>
+                <span className="stat-description">Total barang terdaftar</span>
                 <span className="stat-mini-icon blue-mini">
                   <Boxes size={15} />
                 </span>
@@ -682,9 +670,7 @@ export default function Home() {
                 {formatRupiah(totalNilai)}
               </strong>
               <div className="stat-bottom">
-                <span className="stat-description">
-                  Perkiraan nilai stok
-                </span>
+                <span className="stat-description">Perkiraan nilai stok</span>
                 <span className="stat-mini-icon green-mini">
                   <ChartNoAxesColumnIncreasing size={15} />
                 </span>
@@ -724,9 +710,7 @@ export default function Home() {
                     )}
                   </span>
                   <div>
-                    <h2>
-                      {editId === null ? "Tambah Barang" : "Edit Barang"}
-                    </h2>
+                    <h2>{editId === null ? "Tambah Barang" : "Edit Barang"}</h2>
                     <p>
                       {editId === null
                         ? "Isi informasi barang yang ingin ditambahkan."
@@ -828,9 +812,7 @@ export default function Home() {
                     ) : (
                       <>
                         <CheckCircle2 size={16} />
-                        {editId === null
-                          ? "Simpan Barang"
-                          : "Simpan Perubahan"}
+                        {editId === null ? "Simpan Barang" : "Simpan Perubahan"}
                       </>
                     )}
                   </button>
@@ -1046,10 +1028,7 @@ export default function Home() {
                 onClick={() => void ambilBarang()}
                 disabled={loading}
               >
-                <RefreshCw
-                  size={15}
-                  className={loading ? "spin-icon" : ""}
-                />
+                <RefreshCw size={15} className={loading ? "spin-icon" : ""} />
                 Muat ulang
               </button>
             </div>
@@ -1093,16 +1072,12 @@ export default function Home() {
                       <td colSpan={8} className="empty-state">
                         <Package size={30} />
                         <strong>
-                          {pencarian ||
-                          filterKategori !== "Semua" ||
-                          filterStok
+                          {pencarian || filterKategori !== "Semua" || filterStok
                             ? "Barang tidak ditemukan"
                             : "Belum ada barang"}
                         </strong>
                         <span>
-                          {pencarian ||
-                          filterKategori !== "Semua" ||
-                          filterStok
+                          {pencarian || filterKategori !== "Semua" || filterStok
                             ? "Coba ubah kata pencarian atau filter."
                             : "Tambahkan barang untuk mulai mengisi inventaris."}
                         </span>
@@ -1201,10 +1176,7 @@ export default function Home() {
                                 title="Hapus barang"
                               >
                                 {hapusId === item.id ? (
-                                  <RefreshCw
-                                    size={16}
-                                    className="spin-icon"
-                                  />
+                                  <RefreshCw size={16} className="spin-icon" />
                                 ) : (
                                   <Trash2 size={16} />
                                 )}
